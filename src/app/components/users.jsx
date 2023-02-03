@@ -3,14 +3,14 @@ import { paginate } from "../utils/paginate";
 import Pagination from "./pagination";
 import User from "./user";
 const Users = ({ users, ...rest }) => {
-    const count = users.length
-    const pageSize = 4
-    const [currentPage,setCurrentPage] = useState(1)
+    const count = users.length;
+    const pageSize = 4;
+    const [currentPage, setCurrentPage] = useState(1);
     const handlePageChange = (pageIndex) => {
-   console.log("page: ",pageIndex);
-   setCurrentPage(pageIndex)
-    }
-    const userCrop = paginate(users,currentPage,pageSize)
+        console.log("page: ", pageIndex);
+        setCurrentPage(pageIndex);
+    };
+    const userCrop = paginate(users, currentPage, pageSize);
     return (
         <>
             {count > 0 && (
@@ -28,16 +28,16 @@ const Users = ({ users, ...rest }) => {
                     </thead>
                     <tbody>
                         {userCrop.map((user) => (
-                            <User  {...rest} {...user} key={user._id}/>
+                            <User {...rest} {...user} key={user._id} />
                         ))}
                     </tbody>
                 </table>
             )}
             <Pagination
-             itemsCount ={count} 
-            pageSize={pageSize} 
-            currentPage={currentPage}
-            onPageChange ={handlePageChange}
+                itemsCount={count}
+                pageSize={pageSize}
+                currentPage={currentPage}
+                onPageChange={handlePageChange}
             />
         </>
     );
