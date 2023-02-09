@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react";
 import PropTypes from "prop-types";
 import { paginate } from "../utils/paginate";
 import Pagination from "./pagination";
-import User from "./user";
+
 import api from "../api";
 import GroupList from "./groupList";
 import SearchStatus from "./searchStatus";
@@ -34,13 +34,7 @@ setCurrentPage(1);
         setCurrentPage(pageIndex);
     };
     const handleSort = (item) =>{
-        if(sortBy.iter===item) {
-            setSortBy((prevState)=>({...prevState,
-                order:prevState.order === "asc" ? "desc" : "asc"
-            }));
-        } else {
-            setSortBy({iter:item,order:'asc'});
-        };
+       setSortBy(item);
     };
     const filteredUsers = selectedProf 
     ? allUsers.filter
@@ -75,7 +69,11 @@ setCurrentPage(1);
         <div className="d-flex flex-column">  
         <SearchStatus length={count} />
             {count > 0 && (
-                <UserTable users={usersCrop} onSort={handleSort} {...rest}/>
+                <UserTable users={usersCrop}
+                 onSort={handleSort}
+                 currentSort={sortBy} 
+                 {...rest}
+                 />
             )}
               <div className="d-flex justify-content-center">
               <Pagination
