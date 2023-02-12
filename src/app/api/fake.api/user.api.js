@@ -143,5 +143,7 @@ const users = [
     }
 ];
 export function fetchAll() {
-    return users;
+    return new Promise((resolve, reject) => {
+        resolve(users);
+    });
 }
