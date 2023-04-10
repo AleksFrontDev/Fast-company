@@ -5,7 +5,7 @@ import api from "../../api";
 import SelectField from "../common/form/selectField";
 import RadioField from "../common/form/radioField";
 import MultiSelectField from "../common/form/multiSelectField";
-import CheckBoxField from "../common/form/chekcBoxField";
+import CheckBoxField from "../common/form/checkBoxField";
 
 const RegisterForm = () => {
     const [data, setData] = useState({
@@ -173,7 +173,7 @@ const RegisterForm = () => {
                 name="licence"
                 error={errors.licence}
             >
-                Подтвердить <a>лицензионное соглашение</a>
+                <a> Подтвердить лицензионное соглашение</a>
             </CheckBoxField>
             <button
                 className="btn btn-primary w-100 mx-auto"
