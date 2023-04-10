@@ -48,6 +48,7 @@ const UsersListPage = () => {
         setSelectedProf(undefined);
         setSearchQuery(target.value);
     };
+
     const handlePageChange = (pageIndex) => {
         setCurrentPage(pageIndex);
     };

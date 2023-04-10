@@ -7,7 +7,6 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
     const handleChange = ({ target }) => {
         onChange({ name: target.name, value: target.value });
     };
-
     const getInputClasses = () => {
         return "form-control" + (error ? " is-invalid" : "");
     };
@@ -19,7 +18,7 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
             <label htmlFor={name}>{label}</label>
             <div className="input-group has-validation">
                 <input
-                    type={showPassword ? " text" : type}
+                    type={showPassword ? "text" : type}
                     id={name}
                     name={name}
                     value={value}
@@ -47,7 +46,6 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
 TextField.defaultProps = {
     type: "text"
 };
-
 TextField.propTypes = {
     label: PropTypes.string,
     type: PropTypes.string,
